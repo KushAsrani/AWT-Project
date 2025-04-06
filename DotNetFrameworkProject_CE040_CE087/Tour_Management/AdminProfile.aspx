@@ -24,7 +24,7 @@ li {
 }
 
 li:last-child {
-  border-right: none;
+  border-right: solid;
 }
 
 li a {

@@ -24,9 +24,9 @@
     opacity: 0.98;
 }
 
-
-
-
+.gap-3 {
+    justify-content: center;
+}
 
     </style>
 
@@ -52,21 +52,41 @@
                 <h1>User Login</h1>
             </div>
             <form id="form1" runat="server">
+
     <div class="mb-4 text-start">
-        <asp:Label ID="Label1" runat="server" Text="Email" CssClass="form-label"></asp:Label>
-        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" required="true" CssClass="form-control form-control-lg" Width="400px" />
+        <asp:Label ID="Label1" runat="server" Text="Username or Email" CssClass="form-label"></asp:Label>
+        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" CssClass="form-control form-control-lg" Width="400px" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+            ControlToValidate="txtEmail" ErrorMessage="Username or email is required." 
+            CssClass="text-danger" Display="Dynamic" />
+        <asp:RegularExpressionValidator ID="RegexEmail" runat="server"
+            ControlToValidate="txtEmail"
+            ErrorMessage="Invalid username or email."
+            CssClass="text-danger"
+            Display="Dynamic"
+            ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" />
     </div>
 
     <div class="mb-4 text-start">
         <asp:Label ID="Label2" runat="server" Text="Password" CssClass="form-label"></asp:Label>
-        <asp:TextBox ID="txtPassword" type="password" required="true" runat="server" CssClass="form-control form-control-lg" Width="400px"/>
-    </div><br />
+        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="form-control form-control-lg" Width="400px" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+            ControlToValidate="txtPassword" ErrorMessage="Password is required." 
+            CssClass="text-danger" Display="Dynamic" />
+        <asp:Label ID="lblError" runat="server" Text="Invalid username or password" 
+    ForeColor="Red" CssClass="text-danger" Visible="False" />
+
+    </div>
+    <br />
 
     <div class="d-grid gap-3">
-        <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-dark btn-lg" OnClick="Btn_Submit" BackColor="#F0F0F0" ForeColor="Black" />
-        <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn btn-dark btn-lg" OnClick="Btn_reg" BackColor="#F0F0F0" ForeColor="Black" />
+        <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-dark btn-lg"
+            OnClick="Btn_Submit" BackColor="#F0F0F0" ForeColor="Black" Width="150px" />
+        <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn btn-dark btn-lg"
+            OnClick="Btn_reg" BackColor="#F0F0F0" ForeColor="Black" Width="150px" />
     </div>
 </form>
+
 
             </div>
            </div>

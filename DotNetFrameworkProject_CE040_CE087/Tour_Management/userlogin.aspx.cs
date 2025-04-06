@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace Tour_Management
 {
@@ -16,42 +19,42 @@ namespace Tour_Management
 
         }
 
-  
-            protected void Btn_Submit(object sender, EventArgs e)
-            { 
-            
-               
 
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+        protected void Btn_Submit(object sender, EventArgs e)
+        {
+            string email = txtEmail.Text.Trim();
+            string passwordInput = txtPassword.Text.Trim();
+
+            string connStr = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
                 conn.Open();
-                string checkPasswordQuery = "select password from Userinfo where password='" + txtPassword.Text + "' and email = '" + txtEmail.Text + "'";
-                SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
-            string password = passComm.ExecuteScalar()?.ToString() ?? "";
+                string query = "SELECT COUNT(*) FROM Userinfo WHERE email = @Email AND password = @Password";
 
-
-              
-
-                if (password == txtPassword.Text)
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    //Session["New"] = txtEmail.Text;
-                Response.Write("Password is correct");
-                
-                Response.Redirect("MainProfilePage.aspx");
-                    Server.Transfer(  "MainProfilePage.aspx");
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", passwordInput);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count == 1)
+                    {
+                        // Login successful
+                        lblError.Visible = false;
+                        Session["User"] = email;
+                        Response.Redirect("MainProfilePage.aspx");
+                    }
+                    else
+                    {
+                        // Invalid login
+                        lblError.Visible = true;
+                    }
                 }
-
-
-            
-            else
-                {
-                    Response.Write("Password is not correct");
-                
             }
+        }
 
 
-
-
-            }
 
         protected void Btn_reg(object sender, EventArgs e)
         {

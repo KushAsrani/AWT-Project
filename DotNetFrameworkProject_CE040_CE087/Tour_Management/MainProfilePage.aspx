@@ -20,7 +20,7 @@ li {
 }
 
 li:last-child {
-  border-right: none;
+  border-right: solid, white;
 }
 
 li a {
