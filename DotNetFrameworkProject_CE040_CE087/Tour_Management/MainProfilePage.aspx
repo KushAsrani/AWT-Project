@@ -103,6 +103,9 @@ li a:hover:not(.active) {
      
 </style>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+
 </head>
 <body>
     <ul class="nav navbar-nav navbar-left" >
@@ -110,7 +113,6 @@ li a:hover:not(.active) {
                 <li><a href="DisplayTours.aspx">Tours</a></li>    
                  <li><a href="Order.aspx">Book Tour</a></li> 
                   <li><a href="mybooking.aspx">Bookings info</a></li>
-                  <li><a href="userlogin.aspx">Logout</a></li>
                 
                 
             </ul>

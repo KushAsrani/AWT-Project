@@ -54,17 +54,11 @@
             <form id="form1" runat="server">
 
     <div class="mb-4 text-start">
-        <asp:Label ID="Label1" runat="server" Text="Username or Email" CssClass="form-label"></asp:Label>
-        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" CssClass="form-control form-control-lg" Width="400px" />
+        <asp:Label ID="Label1" runat="server" Text="Username" CssClass="form-label"></asp:Label>
+        <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control form-control-lg" Width="400px" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-            ControlToValidate="txtEmail" ErrorMessage="Username or email is required." 
-            CssClass="text-danger" Display="Dynamic" />
-        <asp:RegularExpressionValidator ID="RegexEmail" runat="server"
-            ControlToValidate="txtEmail"
-            ErrorMessage="Invalid username or email."
-            CssClass="text-danger"
-            Display="Dynamic"
-            ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" />
+    ControlToValidate="txtUsername" ErrorMessage="Username is required." 
+    CssClass="text-danger" Display="Dynamic" />
     </div>
 
     <div class="mb-4 text-start">
@@ -81,9 +75,9 @@
 
     <div class="d-grid gap-3">
         <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-dark btn-lg"
-            OnClick="Btn_Submit" BackColor="#F0F0F0" ForeColor="Black" Width="150px" />
+            OnClick="Btn_Submit" BackColor="#0067B8" ForeColor="White" Width="150px" />
         <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn btn-dark btn-lg"
-            OnClick="Btn_reg" BackColor="#F0F0F0" ForeColor="Black" Width="150px" />
+            OnClick="Btn_reg" BackColor="#0067B8" ForeColor="White" Width="150px" />
     </div>
 </form>
 

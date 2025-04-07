@@ -20,14 +20,12 @@ namespace Tour_Management
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
             conn.Open();
-            string insertQuery = "insert into UserInfo(Email,FirstName,LastName,Gender,Password,dob,Street,City,State) values(@email,@FirstName,@LastName,@Gender,@Password,@dob,@Street,@City,@State)";
+            string insertQuery = "insert into UserInfo(Username,Email,Gender,Password,Street,City,State) values(@Username,@Email,@Gender,@Password,@Street,@City,@State)";
             SqlCommand com = new SqlCommand(insertQuery, conn);
+            com.Parameters.AddWithValue("@Username", username.Text);
             com.Parameters.AddWithValue("@Email", email.Text);
-            com.Parameters.AddWithValue("@FirstName", fname.Text);
-            com.Parameters.AddWithValue("@LastName", lname.Text);
             com.Parameters.AddWithValue("@Gender", gender.Text);
             com.Parameters.AddWithValue("@Password", password1.Text);
-            com.Parameters.AddWithValue("@dob", dob.Text);
             com.Parameters.AddWithValue("@Street", street.Text);
             com.Parameters.AddWithValue("@City", city.Text);
             com.Parameters.AddWithValue("@State", state.Text);
@@ -39,6 +37,31 @@ namespace Tour_Management
             conn.Close();
 
         }
-           
-}
+
+        protected void cvUsernameExists_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM UserInfo WHERE Username = @Username";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", args.Value);
+                int count = (int)cmd.ExecuteScalar();
+                args.IsValid = count == 0;
+            }
+        }
+
+        protected void cvEmailExists_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM UserInfo WHERE Email = @Email";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Email", args.Value);
+                int count = (int)cmd.ExecuteScalar();
+                args.IsValid = count == 0;
+            }
+        }
     }
+}

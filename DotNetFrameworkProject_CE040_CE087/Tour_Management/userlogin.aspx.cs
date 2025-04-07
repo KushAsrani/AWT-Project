@@ -18,41 +18,36 @@ namespace Tour_Management
         {
 
         }
-
-
         protected void Btn_Submit(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string passwordInput = txtPassword.Text.Trim();
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-            string connStr = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            string connectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM Userinfo WHERE email = @Email AND password = @Password";
+                string query = "SELECT COUNT(*) FROM UserInfo WHERE Username = @Username AND Password = @Password";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                int count = (int)cmd.ExecuteScalar();
+
+                if (count == 1)
                 {
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Password", passwordInput);
-
-                    int count = (int)cmd.ExecuteScalar();
-
-                    if (count == 1)
-                    {
-                        // Login successful
-                        lblError.Visible = false;
-                        Session["User"] = email;
-                        Response.Redirect("MainProfilePage.aspx");
-                    }
-                    else
-                    {
-                        // Invalid login
-                        lblError.Visible = true;
-                    }
+                    // Successful login
+                    Session["Username"] = username;
+                    Response.Redirect("MainProfilePage.aspx");
+                }
+                else
+                {
+                    lblError.Visible = true;
                 }
             }
         }
+
 
 
 

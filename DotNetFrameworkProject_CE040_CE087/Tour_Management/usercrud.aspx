@@ -23,12 +23,12 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="Email" DataSourceID="SqlDataSource1" AllowSorting="True" BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="Black">
         <AlternatingRowStyle BackColor="White" Width="500px" />
         <Columns>
-            <asp:BoundField DataField="Email" HeaderText="Email" ReadOnly="True" SortExpression="Email" />
-            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="Email" HeaderText="Email" ReadOnly="True" SortExpression="Email"/>
+            <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
             <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
-            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+            <asp:BoundField DataField="Street" HeaderText="Street" SortExpression="Street" />
             <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+            <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
         </Columns>
         <FooterStyle BackColor="White" />
         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -45,7 +45,7 @@
 EXCEPT
 Select top ((select COUNT(*) from UserInfo)-(1)) * From UserInfo"
             
-            UpdateCommand="UPDATE [UserInfo] Set [Email]=@Email,[FirstName]=@FirstName,[LastName]=@LastName,[Gender]=@Gender,[Password]=@Password,[City]=@City Where [Email]=@Email"
+            UpdateCommand="UPDATE [UserInfo] Set [Username]=@Username, [Email]=@Email, [Gender]=@Gender, [Street]=@Street, [City]=@City, [State]= @State Where [Email]=@Email"
             ></asp:SqlDataSource>
             </div>
     </form>
