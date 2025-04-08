@@ -15,12 +15,7 @@
 }
 
 li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-li:last-child {
-  border-right: solid, white;
+  float: right;
 }
 
 li a {
@@ -46,7 +41,7 @@ li a:hover:not(.active) {
              background-size: cover;
             text-align:center;
             color:white;
-            height:500px;
+            height:550px;
             background-color:white;
              opacity:0.8;
              justify-content: center;
@@ -56,13 +51,18 @@ li a:hover:not(.active) {
             color:white;
            
         }
-        .tour .a{
+        .tour a{
             font-size:larger;
-            background-color:darkslateblue;
+            background-color: #007BFF;
             color:white;
-            
+            border-color: #007BFF;
         }
-        .tour .p{
+        .tour a:hover {
+            color: white;
+            background-color: #0069D9;
+            border-color: #0062CC;
+        }
+        .tour p{
             text-align:center;
             
             color:white;         
@@ -100,22 +100,63 @@ li a:hover:not(.active) {
              vertical-align:central;
 
         }
+
+  .label-info {
+  color:white;
+  background-color:black;
+  opacity:0.7;
+  padding-left:50px;
+  align-content:center;
+}
+  .custom-nav-link {
+    color: white !important;
+    background-color: black !important;
+  }
+
+   .nav-link:hover {
+       background-color: #333 !important;
+   }
      
 </style>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </head>
 <body>
-    <ul class="nav navbar-nav navbar-left" >
-                <li><a href="usercrud.aspx"><span class="glyphicons glyphicons-home"></span>Profile</a></li>
-                <li><a href="DisplayTours.aspx">Tours</a></li>    
-                 <li><a href="Order.aspx">Book Tour</a></li> 
-                  <li><a href="mybooking.aspx">Bookings info</a></li>
-                
-                
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">TourApp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+  <li class="nav-item">
+    <a class="nav-link text-white bg-dark" href="usercrud.aspx">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white bg-dark" href="DisplayTours.aspx">Tours</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white bg-dark" href="Order.aspx">Book Tour</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white bg-dark" href="mybooking.aspx">Bookings Info</a>
+  </li>
+          <li class="nav-item">
+    <a class="nav-link text-white bg-dark" href="Logout.aspx">Logout</a>
+</li>
+
+</ul>
+
+    </div>
+  </div>
+</nav>
         
     <div class="welcome" style="text-align:center">
         <asp:Label ID="Label1" runat="server" ></asp:Label>
@@ -126,13 +167,11 @@ li a:hover:not(.active) {
                 <a href="DisplayTours.aspx" class="btn btn-primary" style="width:300px; height:50px ; font-size:x-large;">Explore the Tours!</a><br/><br/><br/>
                 <p class="label-info">
                     Find the best tour packages without any hustle.<br/>
-                    Book and pack your lugguage.
+                    Book and pack your luggage.
                 </p>
             </h2>
         
     </div>
-   
-
 
 </body>
 </html>

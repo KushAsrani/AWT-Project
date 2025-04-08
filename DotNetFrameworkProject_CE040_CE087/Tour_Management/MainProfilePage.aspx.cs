@@ -11,7 +11,18 @@ namespace Tour_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["Username"] != null)
+                {
+                    Label1.Text = $"Welcome, {Session["Username"].ToString()}!";
+                }
+                else
+                {
+                    Response.Redirect("userlogin.aspx");
+                }
+            }
         }
+
     }
 }

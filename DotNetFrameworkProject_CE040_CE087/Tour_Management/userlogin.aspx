@@ -28,6 +28,7 @@
     justify-content: center;
 }
 
+
     </style>
 
    
@@ -74,10 +75,10 @@
     <br />
 
     <div class="d-grid gap-3">
-        <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-dark btn-lg"
-            OnClick="Btn_Submit" BackColor="#0067B8" ForeColor="White" Width="150px" />
-        <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn btn-dark btn-lg"
-            OnClick="Btn_reg" BackColor="#0067B8" ForeColor="White" Width="150px" />
+        <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-lg"
+            OnClick="Btn_Submit" BackColor="#0067B8" ForeColor="White" Width="140px" />
+        <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn btn-lg"
+            OnClick="Btn_reg" BackColor="#0067B8" ForeColor="White" Width="140px"/>
     </div>
 </form>
 
