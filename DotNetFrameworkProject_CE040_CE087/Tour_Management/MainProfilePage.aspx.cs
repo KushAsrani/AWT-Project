@@ -15,7 +15,7 @@ namespace Tour_Management
             {
                 if (Session["Username"] != null)
                 {
-                    Label1.Text = $"Welcome, {Session["Username"].ToString()}!";
+                    // Label1.Text = $"Welcome, {Session["Username"].ToString()}!";
                 }
                 else
                 {

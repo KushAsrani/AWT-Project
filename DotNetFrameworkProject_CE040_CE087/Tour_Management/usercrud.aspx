@@ -15,6 +15,9 @@
      justify-content: center;
      align-items: center;
  }
+    .nav-link:hover {
+       background-color: #333 !important;
+   }
     </style>
     <link rel="stylesheet" type="text/css" href="/Content/styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
@@ -25,20 +28,20 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">TourApp</a>
+                <a class="navbar-brand" href="#">Tour Management System</a>
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link text-white" href="MainProfilePage.aspx">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="Tours.aspx">Tours</a>
+                            <a class="nav-link text-white" href="DisplayTours.aspx">Tours</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="BookTour.aspx">Book Tour</a>
+                            <a class="nav-link text-white" href="Order.aspx">Book Tour</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="BookingsInfo.aspx">Bookings Info</a>
+                            <a class="nav-link text-white" href="mybooking.aspx">Bookings Info</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="Logout.aspx">Logout</a>
@@ -50,11 +53,12 @@
 
         <!-- Profile Table -->
         <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-            <div class="card shadow-lg p-4" style="width: 100%; max-width: auto; max-height auto; background-color: #ffffff;">
+            <div class="card shadow-lg p-4" style="width: 100%; max-width: auto; max-height: auto; background-color: #ffffff;">
                 <h3 class="text-center text-black text-primary mb-4">User Profile</h3>
+                <h4 class="text-center text-black text-primary mb-4">Click on the edit button to edit profile</h4>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True"
                 DataKeyNames="Email" DataSourceID="SqlDataSource1" AllowSorting="True"
-                CssClass="table table-bordered text-center bg-white shadow" GridLines="None">
+                CssClass="table table-bordered text-center border-black bg-white shadow" GridLines="None">
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                 <RowStyle BackColor="White" HorizontalAlign="Center" />
                 <AlternatingRowStyle BackColor="#f2f2f2" />
@@ -66,7 +70,7 @@
         <%# Eval("Gender") %>
     </ItemTemplate>
     <EditItemTemplate>
-        <asp:DropDownList ID="ddlGender" runat="server" SelectedValue='<%# Bind("Gender") %>' CssClass="form-select border-black" BackColor="White">
+        <asp:DropDownList ID="ddlGender" runat="server" SelectedValue='<%# Bind("Gender") %>' CssClass="form-select border-black" BackColor="White" Width="190px" Height="35px">
             <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
             <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
         </asp:DropDownList>

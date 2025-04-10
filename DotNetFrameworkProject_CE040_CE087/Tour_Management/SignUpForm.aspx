@@ -20,6 +20,7 @@
 
         h1 {
             margin-bottom: 30px;
+            text-align: center;
         }
 
         .form-group {
@@ -40,16 +41,24 @@
             color: red;
             font-size: 14px;
         }
+        .mb-3 {
+            font-size: larger;
+        }
+        .mb-4 {
+            font-size: larger;
+        }
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" />
 </head>
 
 <body>
+    <br />
+    <h1>Tour Management System</h1>
     <form id="form1" runat="server">
         <div class="container">
             <div class="form-wrapper">
-                <h1 class="text-center">User Registration Form</h1>
+                <h2 class="text-center">User Registration Form</h2><br />
 
                 <!-- Username -->
                <div class="mb-3">
@@ -121,7 +130,7 @@
                     <asp:TextBox ID="state" runat="server" CssClass="form-control" />
                     <asp:RequiredFieldValidator ID="rfvState" runat="server" ControlToValidate="state"
                         ErrorMessage="State is required" CssClass="error" Display="Dynamic" />
-                </div>
+                </div><br />
 
                 <!-- Buttons -->
                 <div class="d-grid gap-2 d-md-flex justify-content-center">

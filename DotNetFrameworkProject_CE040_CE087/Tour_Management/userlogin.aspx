@@ -24,6 +24,10 @@
     opacity: 0.98;
 }
 
+h2 {
+    text-align: center;
+}
+
 .gap-3 {
     justify-content: center;
 }
@@ -40,7 +44,7 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 </head>
 <body>
-
+    <h2>Tour Management System</h2>
 
 
     <br />
@@ -50,7 +54,7 @@
     <div class="login-form">
         <div class="container" runat="server">
             <div class="page-header">
-                <h1>User Login</h1>
+                <h2>User Login</h2>
             </div>
             <form id="form1" runat="server">
 

@@ -20,13 +20,13 @@ namespace Tour_Management
         {
                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
                 conn.Open();
-                string insertQuery = "insert into booking(TOUR_NAME,PLACE,Email,FirstName) values(@TOUR_NAME,@PLACE,@Email,@FirstName)";
+                string insertQuery = "insert into booking(TOUR_NAME,PLACE,MobileNumber,FirstName) values(@TOUR_NAME,@PLACE,@MobileNumber,@FirstName)";
                 SqlCommand com = new SqlCommand(insertQuery, conn);
                 com.Parameters.AddWithValue("@TOUR_NAME", tour_name.Text);
                 
                 com.Parameters.AddWithValue("@PLACE", city.Text);
                
-                com.Parameters.AddWithValue("@Email",number.Text);
+                com.Parameters.AddWithValue("@MobileNumber",number.Text);
                 com.Parameters.AddWithValue("@FirstName", name.Text);
 
                 com.ExecuteNonQuery();
@@ -34,11 +34,6 @@ namespace Tour_Management
                 Response.Redirect("mybooking.aspx");
                 Server.Transfer("mybooking.aspx");
                 conn.Close();
-
-
-
-            
-           
         }
     }
 }
