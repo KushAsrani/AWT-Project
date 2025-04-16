@@ -107,6 +107,7 @@ li a:hover:not(.active) {
   opacity:0.7;
   padding-left:50px;
   align-content:center;
+  justify-content:center;
 }
   .custom-nav-link {
     color: white !important;
@@ -163,13 +164,13 @@ li a:hover:not(.active) {
     </div>
     <div class="tour">    
                     <h2>
-              <br/> <br/> <br/>
-                <a href="DisplayTours.aspx" class="btn btn-primary" style="width:300px; height:50px ; font-size:x-large;">Explore the Tours!</a><br/><br/><br/>
+              <br/> <br/> <br/><br/><br/>
                 <p class="label-info">
                     Find the best tour packages without any hustle.<br/>
                     Book and pack your luggage.
                 </p>
-            </h2>
+            </h2><br/><br/>
+        <a href="DisplayTours.aspx" class="btn btn-primary" style="width:300px; height:50px ; font-size:x-large;">Explore the Tours!</a><br/><br/><br/>
         
     </div>
 

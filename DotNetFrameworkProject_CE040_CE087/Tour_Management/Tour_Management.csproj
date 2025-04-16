@@ -123,6 +123,7 @@
     <Compile Include="DisplayTours.aspx.designer.cs">
       <DependentUpon>DisplayTours.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LblError.cs" />
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

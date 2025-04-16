@@ -52,10 +52,10 @@
         </nav>
 
         <!-- Profile Table -->
-        <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-            <div class="card shadow-lg p-4" style="width: 100%; max-width: auto; max-height: auto; background-color: #ffffff;">
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 45vh;">
+            <div class="card p-4" style="width: 100%; max-width: auto; max-height: auto; background-color: #ffffff; border: none;">
                 <h3 class="text-center text-black text-primary mb-4">User Profile</h3>
-                <h4 class="text-center text-black text-primary mb-4">Click on the edit button to edit profile</h4>
+                <h4 class="text-center text-black text-primary mb-4">Click on the edit button to edit your profile</h4>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True"
                 DataKeyNames="Email" DataSourceID="SqlDataSource1" AllowSorting="True"
                 CssClass="table table-bordered text-center border-black bg-white shadow" GridLines="None">

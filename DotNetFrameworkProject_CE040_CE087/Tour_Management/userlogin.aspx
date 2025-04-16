@@ -79,7 +79,7 @@ h2 {
     <br />
 
     <div class="d-grid gap-3">
-        <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-lg"
+        <asp:Button ID="Register" runat="server" Text="Login" CssClass="btn btn-primary btn-lg"
             OnClick="Btn_Submit" BackColor="#0067B8" ForeColor="White" Width="140px" />
         <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn btn-lg"
             OnClick="Btn_reg" BackColor="#0067B8" ForeColor="White" Width="140px"/>

@@ -4,28 +4,44 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Admin Login</title>
     <style>
-         .container {
+        body {
+            background-color: white;
+        }
+        h1 {
             text-align: center;
-            background-color: black;
-            width: 100%;
-            font-size: 30px;
-            color: white;
-            padding-bottom: 150px;
-            opacity: 0.8;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body><br />
+            <h1>Tour Management System</h1>
     <form id="form1" runat="server">
-        <div class="container">
-      <h1>Admin Login</h1>
-        <asp:Label ID="name1" runat="server" Text="Email"></asp:Label><br />
-        <asp:TextBox ID="name" runat="server"></asp:TextBox><br />
-        <asp:Label ID="password1" runat="server" Text="password"></asp:Label><br />
-        <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox><br />
-        <asp:Button ID="Button1" runat="server" Text="login" />
-     </div> </form>
+        <div class="container d-flex justify-content-center align-items-center" style="height:80vh;">
+            <div class="card p-4 shadow" style="width: 400px; height: 400px">
+                <h3 class="text-center mb-4">Admin Login</h3>
+
+                <!-- Username -->
+                <asp:Label ID="name1" runat="server" Text="Username" CssClass="form-label"></asp:Label>
+                <asp:TextBox ID="name" runat="server" CssClass="form-control mb-1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                    ControlToValidate="name" ErrorMessage="Username is required"
+                    ForeColor="Red" Display="Dynamic" CssClass="small" />
+
+                <!-- Password -->
+                <asp:Label ID="password1" runat="server" Text="Password" CssClass="form-label mt-3"></asp:Label>
+                <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control mb-1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                    ControlToValidate="password" ErrorMessage="Password is required"
+                    ForeColor="Red" Display="Dynamic" CssClass="small" /><br />
+
+                <!-- Login Button -->
+                <asp:Button ID="Button1" CssClass="btn btn-primary w-100 mt-4" runat="server" Text="Login" OnClick="Button1_Click" />
+                <!-- Error Message Label -->
+<asp:Label ID="lblError" runat="server" ForeColor="Red" CssClass="mt-2 text-center" Visible="false"></asp:Label>
+            </div>
+        </div>
+    </form>
 </body>
 </html>
